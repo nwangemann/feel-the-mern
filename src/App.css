@@ -36,3 +36,49 @@
     transform: rotate(360deg);
   }
 }
+
+button{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+input{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.pathParent{
+  background-color: whitesmoke;
+  margin: 30px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 500px;
+  height: 150px;
+}
+
+.mapParent{
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.editParent{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pathParent:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+button:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+input:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
