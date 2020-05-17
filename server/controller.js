@@ -2,7 +2,6 @@ require("dotenv").config();
 const { CONNECTION_STRING } = process.env;
 const MongoClient = require("mongodb").MongoClient;
 
-
 module.exports = {
   getPaths: (req, res) => {
     MongoClient.connect(CONNECTION_STRING, { useUnifiedTopology: true })
@@ -45,16 +44,16 @@ module.exports = {
     MongoClient.connect(CONNECTION_STRING, { useUnifiedTopology: true })
       .then((client) => {
         console.log("Connected to Database");
-        let mongodb = require("mongodb")
-        let ObjectID = mongodb.ObjectID
+        let mongodb = require("mongodb");
+        let ObjectID = mongodb.ObjectID;
         const db = client.db("paths");
         const pathsCollection = db.collection("paths");
         pathsCollection
           .findOneAndUpdate(
-            { "_id" : ObjectID(req.body.id)},
+            { _id: ObjectID(req.body.id) },
             {
               $set: {
-                "path" : req.body.pathToUpdate,
+                path: req.body.pathToUpdate,
               },
             },
             {
@@ -63,28 +62,27 @@ module.exports = {
           )
           .then((result) => {
             db.collection("paths")
-            .find()
-            .toArray()
-            .then((results) => {
-              res.status(200).send(results);
-            })
-            .catch((e) => console.log(e));
+              .find()
+              .toArray()
+              .then((results) => {
+                res.status(200).send(results);
+              })
+              .catch((e) => console.log(e));
           })
           .catch((error) => console.error(error));
       })
       .catch((e) => console.log(e));
   },
   deletePath: (req, res) => {
-    console.log('wtf is req.body.id', req.body.id)
     MongoClient.connect(CONNECTION_STRING, { useUnifiedTopology: true })
       .then((client) => {
         console.log("Connected to Database");
-        let mongodb = require("mongodb")
-        let ObjectID = mongodb.ObjectID
+        let mongodb = require("mongodb");
+        let ObjectID = mongodb.ObjectID;
         const db = client.db("paths");
         const pathsCollection = db.collection("paths");
         pathsCollection
-          .deleteOne({ _id: ObjectID(req.body.id)})
+          .deleteOne({ _id: ObjectID(req.body.id) })
           .then((result) => {
             db.collection("paths")
               .find()
