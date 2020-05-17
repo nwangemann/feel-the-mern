@@ -1,8 +1,8 @@
 import React from "react";
 
 const DBdisplay = (props) => {
-  const mappedDatabase = props.pathStore.map((path) => {
-    return <li>{path}</li>;
+  const mappedDatabase = props.pathStore.map((path, i) => {
+    return <li id={path.id} key={i} >{path.path}</li>;
   });
   return (
     <div>
