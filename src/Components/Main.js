@@ -22,7 +22,6 @@ const Main = () => {
     axios
       .post("/api/newPath", body)
       .then((res) => {
-        console.log("res from post", res);
         setPathStore([...res.data]);
       })
       .catch((e) => {
